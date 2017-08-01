@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4571769717261612}
   - component: {fileID: 136607488766924440}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BodyRightCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4374411011248358}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 4540848160137494}
   - component: {fileID: 33523928232225750}
   - component: {fileID: 23048940722575798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerDoorALeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4489501141439184}
   - component: {fileID: 33709209146961216}
   - component: {fileID: 65847978491699070}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: WingLeftBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,9 +95,10 @@ GameObject:
   - component: {fileID: 95831282521016356}
   - component: {fileID: 114256942658059636}
   - component: {fileID: 114002432684736940}
+  - component: {fileID: 114918995951252542}
   - component: {fileID: 114667003238375680}
   - component: {fileID: 114230779976396102}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: AircraftPropeller
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -114,7 +115,7 @@ GameObject:
   - component: {fileID: 4255780491722494}
   - component: {fileID: 33097824759394228}
   - component: {fileID: 23153326333484346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerBlurLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +132,7 @@ GameObject:
   - component: {fileID: 4077263016706400}
   - component: {fileID: 33210709711376608}
   - component: {fileID: 23070307043234698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerBladesLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +149,7 @@ GameObject:
   - component: {fileID: 4413973823168210}
   - component: {fileID: 33902755500400598}
   - component: {fileID: 23230633274919570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerAileronLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +166,7 @@ GameObject:
   - component: {fileID: 4949360146141584}
   - component: {fileID: 33732356040920408}
   - component: {fileID: 23061231972410776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerGearRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +183,7 @@ GameObject:
   - component: {fileID: 4891765136958690}
   - component: {fileID: 33535704662338504}
   - component: {fileID: 23615332162535404}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerFlapLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +200,7 @@ GameObject:
   - component: {fileID: 4464417887672350}
   - component: {fileID: 33368332237213086}
   - component: {fileID: 65127170601582996}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: TailfinRightBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +217,7 @@ GameObject:
   - component: {fileID: 4530961381121372}
   - component: {fileID: 33580581872386540}
   - component: {fileID: 23920936521459158}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerBladesRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +234,7 @@ GameObject:
   - component: {fileID: 4217306041607550}
   - component: {fileID: 33510212826211354}
   - component: {fileID: 23906544980610374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerBlurRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +251,7 @@ GameObject:
   - component: {fileID: 4625725099778866}
   - component: {fileID: 33280851902799874}
   - component: {fileID: 23856288221895824}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftFuselageRudderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +268,7 @@ GameObject:
   - component: {fileID: 4943893177333674}
   - component: {fileID: 33197232984462182}
   - component: {fileID: 23654210992286200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerAileronRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4115130174483950}
   - component: {fileID: 136445101723079916}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BodyCentreCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +301,7 @@ GameObject:
   - component: {fileID: 4511310192163066}
   - component: {fileID: 33303534503924188}
   - component: {fileID: 23341689363164562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +318,7 @@ GameObject:
   - component: {fileID: 4322943009401532}
   - component: {fileID: 33209337821610610}
   - component: {fileID: 23244408964428642}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftFuselageGearDoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +335,7 @@ GameObject:
   - component: {fileID: 4968957762911964}
   - component: {fileID: 33913064083744936}
   - component: {fileID: 65996709091306582}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: TailfinLeftBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,8 +352,24 @@ GameObject:
   - component: {fileID: 4037737945702908}
   - component: {fileID: 33894139910182932}
   - component: {fileID: 23413654213304756}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftFuselageBody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1369768907960978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4399835976024980}
+  - component: {fileID: 65461779869315012}
+  m_Layer: 9
+  m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -366,7 +383,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4654261195608658}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4181247592874926}
   - component: {fileID: 136848362308716060}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: NoseCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +416,7 @@ GameObject:
   - component: {fileID: 4433785677262112}
   - component: {fileID: 33290261185295638}
   - component: {fileID: 65593698751242088}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: AileronLeftBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +433,7 @@ GameObject:
   - component: {fileID: 4620055405862366}
   - component: {fileID: 33494027011491632}
   - component: {fileID: 23805203038735922}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftFuselageRudderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +450,7 @@ GameObject:
   - component: {fileID: 4124589322308726}
   - component: {fileID: 33638691597045036}
   - component: {fileID: 23967037548781982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftFuselageGearDoorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +465,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4437854479153862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftFuselage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +482,7 @@ GameObject:
   - component: {fileID: 4087872699496452}
   - component: {fileID: 33673738995359704}
   - component: {fileID: 23197535403323596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerGearLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +499,7 @@ GameObject:
   - component: {fileID: 4718954866565470}
   - component: {fileID: 33243572491379344}
   - component: {fileID: 23184811641931732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerFlapRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +516,7 @@ GameObject:
   - component: {fileID: 4052535614328922}
   - component: {fileID: 33375492725711252}
   - component: {fileID: 23514754998670700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerDoorBLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,13 +531,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4953445772918548}
-  - component: {fileID: 20277599531398798}
-  - component: {fileID: 92427259379134426}
-  - component: {fileID: 124818577090751888}
-  - component: {fileID: 81314548296721028}
-  - component: {fileID: 114629623784835930}
-  m_Layer: 0
-  m_Name: Camera
+  m_Layer: 9
+  m_Name: CameraTarget
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -536,7 +548,7 @@ GameObject:
   - component: {fileID: 4659642040489832}
   - component: {fileID: 33373493807459542}
   - component: {fileID: 23665524726793838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerConeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +565,7 @@ GameObject:
   - component: {fileID: 4672995545952056}
   - component: {fileID: 33848987021544462}
   - component: {fileID: 23302121358959672}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerConeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4864530038108212}
   - component: {fileID: 136714541743923100}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BodyLeftCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +598,7 @@ GameObject:
   - component: {fileID: 4491058750061352}
   - component: {fileID: 33504768372264314}
   - component: {fileID: 65519351553926270}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: WingRightBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4589586600058374}
   - component: {fileID: 135574559622315934}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: NoseSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +631,7 @@ GameObject:
   - component: {fileID: 4992583566169442}
   - component: {fileID: 33154426072207480}
   - component: {fileID: 65433285391367794}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: AileronRightBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,7 +648,7 @@ GameObject:
   - component: {fileID: 4658210723468268}
   - component: {fileID: 33967879870943140}
   - component: {fileID: 23247736845341884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerGearFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4166004314963136}
   - component: {fileID: 146598787445880254}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: WheelFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +681,7 @@ GameObject:
   - component: {fileID: 4789815499516100}
   - component: {fileID: 33590883194738220}
   - component: {fileID: 23573412423521888}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerDoorBRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +696,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4384302933819612}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4605257911155588}
   - component: {fileID: 146579777573142904}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: WheelRearLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4003262179886970}
   - component: {fileID: 146880751217730476}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: WheelRearRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +745,7 @@ GameObject:
   - component: {fileID: 4930328974668988}
   - component: {fileID: 33908326835347370}
   - component: {fileID: 23345284014188946}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AircraftWingsPropellerDoorARight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4384302933819612
 Transform:
@@ -938,8 +950,21 @@ Transform:
   - {fileID: 4087872699496452}
   - {fileID: 4949360146141584}
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4399835976024980
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369768907960978}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0.73, z: 2.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4627383314345392}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!4 &4413973823168210
 Transform:
   m_ObjectHideFlags: 1
@@ -982,7 +1007,7 @@ Transform:
   - {fileID: 4625725099778866}
   - {fileID: 4620055405862366}
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4464417887672350
 Transform:
@@ -1137,6 +1162,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4399835976024980}
   - {fileID: 4654261195608658}
   - {fileID: 4384302933819612}
   - {fileID: 4437854479153862}
@@ -1170,7 +1196,7 @@ Transform:
   - {fileID: 4489501141439184}
   - {fileID: 4433785677262112}
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4658210723468268
 Transform:
@@ -1309,11 +1335,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1709409715036920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.1, z: -14.93}
+  m_LocalPosition: {x: 0, y: 2.73, z: 7.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4968957762911964
 Transform:
@@ -1341,42 +1367,6 @@ Transform:
   m_Father: {fileID: 4654261195608658}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20277599531398798
-Camera:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709409715036920}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!23 &23048940722575798
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -2355,6 +2345,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65461779869315012
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369768907960978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!65 &65519351553926270
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2403,20 +2405,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!81 &81314548296721028
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709409715036920}
-  m_Enabled: 1
---- !u!92 &92427259379134426
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709409715036920}
-  m_Enabled: 1
 --- !u!95 &95831282521016356
 Animator:
   serializedVersion: 3
@@ -2544,20 +2532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643c971818f68d3439e84b5d8bdafe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114629623784835930
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709409715036920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a872bfbf022464f904210eeacdcf54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ringMesh: {fileID: 4300000, guid: 67d1a7d1da60e4b74ac2c2417af430aa, type: 3}
-  ringMaterial: {fileID: 2100000, guid: 50e25322f9f654c66b9cd76ddfce859a, type: 2}
-  ringDistance: 2
 --- !u!114 &114667003238375680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2665,13 +2639,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b69c4131f95a475b84b8d5e9fc3e9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!124 &124818577090751888
-Behaviour:
+--- !u!114 &114918995951252542
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709409715036920}
+  m_GameObject: {fileID: 1114724419586888}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0930972a6f99e429bbf7d3b7eefdec96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadPlayerPrefab: {fileID: 1572361501214686, guid: 6cfc0c2cf9b9f4c72b1b6eeb40543f04,
+    type: 2}
+  health: 20
 --- !u!135 &135574559622315934
 SphereCollider:
   m_ObjectHideFlags: 1

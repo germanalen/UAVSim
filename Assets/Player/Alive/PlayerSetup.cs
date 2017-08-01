@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 
 public class PlayerSetup : NetworkBehaviour
 {
-
 	Rigidbody rigidbodyComponent;
 
 	public void Start ()
@@ -14,8 +13,6 @@ public class PlayerSetup : NetworkBehaviour
 		if (isLocalPlayer) {
 
 		} else {
-			GameObject camera = transform.Find ("Camera").gameObject;
-			camera.SetActive (false);
 			AeroplaneUserControl2Axis controls = GetComponent<AeroplaneUserControl2Axis> ();
 			controls.enabled = false;
 		}

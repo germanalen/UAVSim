@@ -13,7 +13,8 @@ public class Radar : MonoBehaviour
 		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 
 		for (int i = 0; i < players.Length; ++i) {
-			if (players [i] != transform.parent.gameObject) {
+			PlayerSetup playerSetup = players [i].GetComponent<PlayerSetup> ();
+			if (!playerSetup.isLocalPlayer) {
 
 
 				Vector3 playerCenter = players [i].transform.Find ("Center").position;
