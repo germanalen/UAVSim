@@ -147,6 +147,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 20383428291599560, guid: 24e2fa912fc3c4ea98a5fef88e0aa1cd,
+        type: 2}
+      propertyPath: far clip plane
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24e2fa912fc3c4ea98a5fef88e0aa1cd, type: 2}
   m_IsPrefabParent: 0
