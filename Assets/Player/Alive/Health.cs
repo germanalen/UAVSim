@@ -10,10 +10,11 @@ public class Health : NetworkBehaviour
 
 	[SyncVar] public int health = 20;
 
+	bool dying = false;
 
 	void OnTriggerEnter (Collider impactObject)
 	{
-		if (!isServer)
+		if (!isServer || dying)
 			return;
 
 		Damager damager = impactObject.gameObject.GetComponent<Damager> ();
@@ -25,6 +26,7 @@ public class Health : NetworkBehaviour
 
 		if (health <= 0) {
 			RpcDie ();
+			dying = true;
 		}
 	}
 
