@@ -5,7 +5,7 @@ using UnityEngine;
 public class MainCamera : MonoBehaviour
 {
 
-	public Transform target;
+	Transform target;
 
 	void Update ()
 	{

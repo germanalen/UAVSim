@@ -6,10 +6,14 @@ using UnityEngine.Networking;
 public class PlayerSetup : NetworkBehaviour
 {
 	Rigidbody rigidbodyComponent;
+	AeroplaneController controller;
+	Health health;
 
 	public void Start ()
 	{
 		rigidbodyComponent = GetComponent<Rigidbody> ();
+		health = GetComponent<Health> ();
+		controller = GetComponent<AeroplaneController> ();
 		if (isLocalPlayer) {
 
 		} else {
@@ -21,6 +25,8 @@ public class PlayerSetup : NetworkBehaviour
 
 	void Update()
 	{
+		health.scrapVelocity = transform.forward * controller.ForwardSpeed;
+		//Debug.Log (1.0f/Time.deltaTime);
 		if (isLocalPlayer && !isServer) {
 			//CmdPrintTransformDiff (transform.position, transform.rotation, rigidbodyComponent.velocity);
 		}

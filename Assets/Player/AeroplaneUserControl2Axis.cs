@@ -15,15 +15,17 @@ public class AeroplaneUserControl2Axis : MonoBehaviour
 	}
 
 
+	void Update()
+	{
+		if (Input.GetKeyDown (KeyCode.LeftControl)) {
+			throttleInput = !throttleInput;
+		}
+	}
+
 	private void FixedUpdate ()
 	{
 		float roll = Input.GetAxis ("Horizontal");
 		float pitch = Input.GetAxis ("Vertical");
-
-		if (Input.GetKeyDown (KeyCode.LeftControl)) {
-			throttleInput = !throttleInput;
-		}
-
 
 		float throttle = throttleInput ? 1 : -1;
 		bool airBrakes = !throttleInput;

@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 114256942658059636}
   - component: {fileID: 114002432684736940}
   - component: {fileID: 114918995951252542}
+  - component: {fileID: 114547211634825896}
   - component: {fileID: 114667003238375680}
   - component: {fileID: 114230779976396102}
   m_Layer: 9
@@ -354,22 +355,6 @@ GameObject:
   - component: {fileID: 23413654213304756}
   m_Layer: 9
   m_Name: AircraftFuselageBody
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1369768907960978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4399835976024980}
-  - component: {fileID: 65461779869315012}
-  m_Layer: 9
-  m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -919,7 +904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4384302933819612
 Transform:
@@ -950,21 +935,8 @@ Transform:
   - {fileID: 4087872699496452}
   - {fileID: 4949360146141584}
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4399835976024980
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369768907960978}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.73, z: 2.36}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!4 &4413973823168210
 Transform:
   m_ObjectHideFlags: 1
@@ -1007,7 +979,7 @@ Transform:
   - {fileID: 4625725099778866}
   - {fileID: 4620055405862366}
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4464417887672350
 Transform:
@@ -1162,7 +1134,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4399835976024980}
   - {fileID: 4654261195608658}
   - {fileID: 4384302933819612}
   - {fileID: 4437854479153862}
@@ -1196,7 +1167,7 @@ Transform:
   - {fileID: 4489501141439184}
   - {fileID: 4433785677262112}
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4658210723468268
 Transform:
@@ -1335,11 +1306,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1709409715036920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.73, z: 7.95}
+  m_LocalPosition: {x: 0, y: 3, z: 7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4627383314345392}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4968957762911964
 Transform:
@@ -2345,18 +2316,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65461779869315012
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369768907960978}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 2, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
 --- !u!65 &65519351553926270
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2492,6 +2451,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raiseAtAltitude: 20
   lowerAtAltitude: 20
+--- !u!114 &114547211634825896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114724419586888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2caa4d5c03a0e4eecb7fa69457bee327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missilePrefab: {fileID: 1994372928045878, guid: 2a13357ca070e4029bfc5a66d5f70bc5,
+    type: 2}
 --- !u!114 &114550933722299404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2650,9 +2622,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0930972a6f99e429bbf7d3b7eefdec96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadPlayerPrefab: {fileID: 1572361501214686, guid: 6cfc0c2cf9b9f4c72b1b6eeb40543f04,
+  health: 100
+  dyingTime: 0
+  scrapsPrefab: {fileID: 1312280242136420, guid: 69bc5950047d24a3aac19226cf317a92,
     type: 2}
-  health: 20
+  scrapMaterial: {fileID: 2100000, guid: 70bf8470a3dee40208e84ba4b3622f83, type: 2}
+  scrapVelocity: {x: 0, y: 0, z: 0}
+  scrapLifetime: 20
+  explosionPrefab: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 2}
+  explosionObjectLifetime: 10
+  sparksPrefab: {fileID: 1324548502724348, guid: 68d4381b99e8a4aeeaecefc6d1c995aa,
+    type: 2}
 --- !u!135 &135574559622315934
 SphereCollider:
   m_ObjectHideFlags: 1
