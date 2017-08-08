@@ -1,17 +1,38 @@
 fileFormatVersion: 2
-guid: e179c23fc764040ca8f1aa64d874ab6d
-timeCreated: 1501675321
+guid: 1e1869cc012c64af0900505b21298fcf
+timeCreated: 1502119542
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: Missile.004
+    100002: Missile.005
+    100004: Missile.006
+    100006: Missile.007
+    100008: Missile.008
+    100010: //RootNode
+    400000: Missile.004
+    400002: Missile.005
+    400004: Missile.006
+    400006: Missile.007
+    400008: Missile.008
+    400010: //RootNode
+    2300000: Missile.004
+    2300002: Missile.005
+    2300004: Missile.006
+    2300006: Missile.007
+    2300008: Missile.008
+    3300000: Missile.004
+    3300002: Missile.005
+    3300004: Missile.006
+    3300006: Missile.007
+    3300008: Missile.008
+    4300000: Missile.008
+    4300002: Missile.007
+    4300004: Missile.006
+    4300006: Missile.005
+    4300008: Missile.004
+    9500000: //RootNode
   materials:
     importMaterials: 0
     materialName: 0
@@ -39,7 +60,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.6
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -78,7 +99,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0

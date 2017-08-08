@@ -8,6 +8,9 @@ public class Missile : NetworkBehaviour
 	public TargetSeeker targetSeeker;
 	public float speed = 300;
 	public float maxTurn = 2;
+	public float lifespan = 10;
+	public float engineDelay = 1;
+	bool engineOn = false;
 
 	Health health;
 
@@ -17,13 +20,23 @@ public class Missile : NetworkBehaviour
 	{
 		body = GetComponent<Rigidbody> ();
 		health = GetComponent<Health> ();
+
+		if(isServer)
+			Invoke ("TurnEngineOn", engineDelay);
 	}
 
-
+	void TurnEngineOn()
+	{
+		if (isServer) {
+			engineOn = true;
+			GetComponent<Collider> ().enabled = true;
+			Invoke ("Die", lifespan);
+		}
+	}
 
 	void FixedUpdate ()
 	{
-		if (isServer) {
+		if (isServer && engineOn) {
 			body.velocity = (transform.forward * speed);
 			if (targetSeeker) {
 				if (targetSeeker.target) {
@@ -35,5 +48,11 @@ public class Missile : NetworkBehaviour
 			}
 			health.scrapVelocity = transform.forward * speed;
 		}
+	}
+
+	void Die ()
+	{
+		if(isServer)
+			health.Damage (health.GetHealth());
 	}
 }

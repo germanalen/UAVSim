@@ -7,14 +7,14 @@ public class TargetSeeker : MonoBehaviour
 {
 
 	public float maxAngle = 15;
-	//public float maxDistance = 1000;
-	float maxDistance;
+	public float maxDistance = 1000;
+	//float maxDistance;
 	public Transform target;
 
-	void Start()
-	{
-		maxDistance = GetComponent<SphereCollider> ().radius;
-	}
+//	void Start()
+//	{
+//		maxDistance = GetComponent<SphereCollider> ().radius;
+//	}
 
 	float TargetScore (Transform possibleTarget)
 	{
@@ -37,38 +37,23 @@ public class TargetSeeker : MonoBehaviour
 		return 1.0f / (angle * distance); // 1.0f/0 == Mathf.Infinity
 	}
 
-//	void FixedUpdate()
-//	{
-//		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
-//		target = null;
-//		for (int i = 0; i < players.Length; ++i) {
-//			PlayerSetup playerSetup = players [i].GetComponent<PlayerSetup> ();
-//			if (!playerSetup.isLocalPlayer) {
-//				Transform playerCenter = players [i].transform.Find ("Center");
-//				if (TargetScore (playerCenter) > TargetScore (target)) {
-//					target = playerCenter;
-//				}
-//			}
-//		}
-//	}
 
-	void OnTriggerStay (Collider other)
+
+	void Update()
 	{
-		if (other.gameObject.layer == LayerMask.NameToLayer("Player")) {
-			if (TargetScore (other.transform) > TargetScore (target))
-				target = other.transform;
+		if (Time.frameCount % 6 == 0) {
+			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+			target = null;
+			for (int i = 0; i < players.Length; ++i) {
+				PlayerSetup playerSetup = players [i].GetComponent<PlayerSetup> ();
+				if (!playerSetup.isLocalPlayer) {
+					Transform playerCenter = players [i].transform.Find ("Center");
+					if (TargetScore (playerCenter) > TargetScore (target)) {
+						target = playerCenter;
+					}
+				}
+			}
 		}
 	}
 
-//	void OnTriggerExit(Collider other)
-//	{
-//		if (other.transform == target)
-//			target = null;
-//	}
-
-	void FixedUpdate()
-	{
-		if (TargetScore (target) <= 0)
-			target = null;
-	}
 }

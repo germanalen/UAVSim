@@ -8,6 +8,15 @@ public class MissileLauncher : NetworkBehaviour
 
 	public GameObject missilePrefab;
 
+	Transform missilePlaceholders;
+	AeroplaneController controller;
+
+	void Start ()
+	{
+		controller = GetComponent<AeroplaneController> ();
+		missilePlaceholders = transform.Find ("MissilePlaceholders");
+	}
+
 
 	void Update ()
 	{
@@ -15,7 +24,10 @@ public class MissileLauncher : NetworkBehaviour
 			return;
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			CmdLaunch (transform.position + (new Vector3(0,-10,0)), transform.rotation);
+			if (missilePlaceholders.childCount > 0) {
+				GameObject placeholder = missilePlaceholders.GetChild (0).gameObject;
+				CmdLaunch (placeholder.transform.position, placeholder.transform.rotation);
+			}
 		}
 	}
 
@@ -23,7 +35,19 @@ public class MissileLauncher : NetworkBehaviour
 	[Command]
 	void CmdLaunch(Vector3 position, Quaternion rotation)
 	{
-		GameObject missile = Instantiate (missilePrefab, position, rotation);
-		NetworkServer.Spawn (missile);
+		if (missilePlaceholders.childCount > 0) {
+			RpcDestroyMissilePlaceholder ();
+
+			GameObject missile = Instantiate (missilePrefab, position, rotation);
+			missile.GetComponent<Rigidbody> ().velocity = transform.forward * controller.ForwardSpeed;
+			NetworkServer.Spawn (missile);
+		}
+	}
+
+	[ClientRpc]
+	void RpcDestroyMissilePlaceholder()
+	{
+		GameObject placeholder = missilePlaceholders.GetChild (0).gameObject;
+		Destroy (placeholder);
 	}
 }

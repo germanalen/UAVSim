@@ -98,6 +98,7 @@ public class Health : NetworkBehaviour
 			Rigidbody body = fragment.gameObject.AddComponent<Rigidbody> ();
 			body.velocity = scrapVelocity;
 			body.angularVelocity = Random.insideUnitSphere;
+			body.drag = 0.3f;
 
 			fragment.gameObject.AddComponent<BoxCollider> ();
 			fragment.gameObject.layer = LayerMask.NameToLayer ("Scrap");
