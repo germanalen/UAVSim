@@ -6,6 +6,8 @@ public class MainCamera : MonoBehaviour
 {
 
 	Transform target;
+	public GameObject localPlayer { get; private set; }
+
 
 	void Update ()
 	{
@@ -18,6 +20,7 @@ public class MainCamera : MonoBehaviour
 				PlayerSetup playerSetup = players [i].GetComponent<PlayerSetup> ();
 				if (playerSetup.isLocalPlayer) {
 					target = playerSetup.transform.Find ("CameraTarget");
+					localPlayer = players [i];
 					break;
 				}
 			}

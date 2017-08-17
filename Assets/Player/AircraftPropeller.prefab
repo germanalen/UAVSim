@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 114752528967905396}
   - component: {fileID: 114698108235111472}
   - component: {fileID: 114714837705334672}
+  - component: {fileID: 114189128454171812}
   - component: {fileID: 114875149412651828}
   - component: {fileID: 114566028129641246}
   - component: {fileID: 95831282521016356}
@@ -100,6 +101,9 @@ GameObject:
   - component: {fileID: 114547211634825896}
   - component: {fileID: 114667003238375680}
   - component: {fileID: 114230779976396102}
+  - component: {fileID: 114439841780338144}
+  - component: {fileID: 114432775093062020}
+  - component: {fileID: 114534120991900212}
   m_Layer: 9
   m_Name: AircraftPropeller
   m_TagString: Player
@@ -2702,6 +2706,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0348d0a56d244434b992b3387d3a3b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114189128454171812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114724419586888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca93a5990b9946d184c60b07d1ed130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputRoll: 0
+  inputPitch: 0
+  inputFire: 0
+  inputToggleBrakes: 0
 --- !u!114 &114230769576069410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2761,6 +2780,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raiseAtAltitude: 20
   lowerAtAltitude: 20
+--- !u!114 &114432775093062020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114724419586888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f86f7cb4edc4ba6a34c3908da9fe81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAngle: 15
+  maxDistance: 1000
+--- !u!114 &114439841780338144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114724419586888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d75643b5e08e4b2d8ad1f94240c24f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 2000
+--- !u!114 &114534120991900212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114724419586888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32664ea74e6f44cb898081db95a23086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114547211634825896
 MonoBehaviour:
   m_ObjectHideFlags: 1

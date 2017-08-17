@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class MissileLauncher : NetworkBehaviour
 {
@@ -10,10 +11,12 @@ public class MissileLauncher : NetworkBehaviour
 
 	Transform missilePlaceholders;
 	AeroplaneController controller;
+	PlayerInput playerInput;
 
 	void Start ()
 	{
 		controller = GetComponent<AeroplaneController> ();
+		playerInput = GetComponent<PlayerInput> ();
 		missilePlaceholders = transform.Find ("MissilePlaceholders");
 	}
 
@@ -23,7 +26,7 @@ public class MissileLauncher : NetworkBehaviour
 		if (!isLocalPlayer)
 			return;
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (playerInput.fire) {
 			if (missilePlaceholders.childCount > 0) {
 				GameObject placeholder = missilePlaceholders.GetChild (0).gameObject;
 				CmdLaunch (placeholder.transform.position, placeholder.transform.rotation);
@@ -40,6 +43,7 @@ public class MissileLauncher : NetworkBehaviour
 
 			GameObject missile = Instantiate (missilePrefab, position, rotation);
 			missile.GetComponent<Rigidbody> ().velocity = transform.forward * controller.ForwardSpeed;
+			//TODO: push missile out
 			NetworkServer.Spawn (missile);
 		}
 	}

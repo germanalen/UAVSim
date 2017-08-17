@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 92748917699051270}
   - component: {fileID: 81007335642951208}
   - component: {fileID: 114208444872222034}
-  - component: {fileID: 114113025044765652}
   - component: {fileID: 114906210339341210}
   m_Layer: 0
   m_Name: MainCamera
@@ -405,20 +404,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1503554882234788}
   m_Enabled: 1
---- !u!114 &114113025044765652
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1503554882234788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67f86f7cb4edc4ba6a34c3908da9fe81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxAngle: 15
-  maxDistance: 1000
-  target: {fileID: 0}
 --- !u!114 &114208444872222034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,7 +419,7 @@ MonoBehaviour:
   markMesh: {fileID: 4300000, guid: e62910d271db0485fbe25797c98c7756, type: 3}
   markMaterial: {fileID: 2100000, guid: 86f78b375dd034d25a30034d32b13f45, type: 2}
   lockOnMaterial: {fileID: 2100000, guid: 4efa8aedcfa1844a28d756359491072c, type: 2}
-  targetSeeker: {fileID: 114113025044765652}
+  targetSeeker: {fileID: 0}
 --- !u!114 &114906210339341210
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -17,8 +17,8 @@ public class PlayerSetup : NetworkBehaviour
 		if (isLocalPlayer) {
 
 		} else {
-			AeroplaneUserControl2Axis controls = GetComponent<AeroplaneUserControl2Axis> ();
-			controls.enabled = false;
+			GetComponent<AeroplaneUserControl2Axis> ().enabled = false;
+			GetComponent<Radar> ().enabled = false;
 		}
 	}
 

@@ -5,31 +5,29 @@ using UnityStandardAssets.CrossPlatformInput;
 [RequireComponent (typeof(AeroplaneController))]
 public class AeroplaneUserControl2Axis : MonoBehaviour
 {
-	private AeroplaneController m_Aeroplane;
+	AeroplaneController m_Aeroplane;
 
-	bool throttleInput = false;
+	PlayerInput playerInput;
+
+	bool brakesInput = true;
 
 	private void Awake ()
 	{
 		m_Aeroplane = GetComponent<AeroplaneController> ();
+		playerInput = GetComponent<PlayerInput> ();
 	}
 
 
 	void Update()
 	{
-		if (Input.GetKeyDown (KeyCode.LeftControl)) {
-			throttleInput = !throttleInput;
-		}
+		if (playerInput.toggleBrakes)
+			brakesInput = !brakesInput;
 	}
 
 	private void FixedUpdate ()
 	{
-		float roll = Input.GetAxis ("Horizontal");
-		float pitch = Input.GetAxis ("Vertical");
+		float throttle = brakesInput ? -1 : 1;
 
-		float throttle = throttleInput ? 1 : -1;
-		bool airBrakes = !throttleInput;
-
-		m_Aeroplane.Move (roll, pitch, 0, throttle, airBrakes);
+		m_Aeroplane.Move (playerInput.roll, playerInput.pitch, 0, throttle, brakesInput);
 	}
 }
