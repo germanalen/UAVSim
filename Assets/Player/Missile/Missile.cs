@@ -8,7 +8,7 @@ public class Missile : NetworkBehaviour
 	public TargetSeeker targetSeeker;
 	public float speed = 300;
 	public float maxTurn = 2;
-	public float lifespan = 10;
+	public float lifespan = 20;
 	public float engineDelay = 0.2f;
 	bool engineOn = false;
 

@@ -43,6 +43,7 @@ public class MissileLauncher : NetworkBehaviour
 			RpcDestroyMissilePlaceholder ();
 
 			GameObject missile = Instantiate (missilePrefab, position, rotation);
+			missile.GetComponent<TargetSeeker> ().exceptionNetId = netId;
 			missile.GetComponent<Rigidbody> ().velocity = transform.forward * controller.ForwardSpeed - transform.up * missilePushoutSpeed;
 			NetworkServer.Spawn (missile);
 		}

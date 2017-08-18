@@ -30,11 +30,15 @@ public class PlayerLogger : MonoBehaviour
 
 	void OnDestroy ()
 	{
-		file.Close ();
+		if(file != null)
+			file.Close ();
 	}
 
 	void Update ()
 	{
+		if (file == null)
+			return;
+
 		if (Time.time > nextLog) {
 			string info = string.Format ("{0}s P{1} {2} ", Time.time, playerSetup.netId, playerTransform.position);
 

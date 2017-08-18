@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Networking;
 
 public class TargetSeeker : MonoBehaviour
 {
@@ -10,6 +10,9 @@ public class TargetSeeker : MonoBehaviour
 	public float maxDistance = 1000;
 	//float maxDistance;
 	public Transform target { get; private set; }
+
+	//ID of a player that shouldn't be considered as a target
+	public NetworkInstanceId exceptionNetId;
 
 //	void Start()
 //	{
@@ -46,7 +49,7 @@ public class TargetSeeker : MonoBehaviour
 			target = null;
 			for (int i = 0; i < players.Length; ++i) {
 				PlayerSetup playerSetup = players [i].GetComponent<PlayerSetup> ();
-				if (!playerSetup.isLocalPlayer) {
+				if (playerSetup.netId != exceptionNetId) {
 					Transform playerCenter = players [i].transform.Find ("Center");
 					if (TargetScore (playerCenter) > TargetScore (target)) {
 						target = playerCenter;

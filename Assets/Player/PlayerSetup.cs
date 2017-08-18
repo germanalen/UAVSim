@@ -15,10 +15,11 @@ public class PlayerSetup : NetworkBehaviour
 		health = GetComponent<Health> ();
 		controller = GetComponent<AeroplaneController> ();
 		if (isLocalPlayer) {
-
+			GetComponent<TargetSeeker> ().exceptionNetId = netId;
 		} else {
 			GetComponent<AeroplaneUserControl2Axis> ().enabled = false;
 			GetComponent<Radar> ().enabled = false;
+			GetComponent<TargetSeeker> ().enabled = false;
 		}
 	}
 

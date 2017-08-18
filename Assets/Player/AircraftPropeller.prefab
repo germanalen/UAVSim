@@ -2791,8 +2791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f86f7cb4edc4ba6a34c3908da9fe81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAngle: 15
-  maxDistance: 1000
+  maxAngle: 180
+  maxDistance: 2000
 --- !u!114 &114439841780338144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2811,11 +2811,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1114724419586888}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32664ea74e6f44cb898081db95a23086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wishDirection: {x: 0, y: 0, z: 0}
+  wishRoll: 0
+  wishPitch: 0
+  angleDiffThreshold: 0
 --- !u!114 &114547211634825896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2829,6 +2833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 1994372928045878, guid: 2a13357ca070e4029bfc5a66d5f70bc5,
     type: 2}
+  missilePushoutSpeed: 15
 --- !u!114 &114550933722299404
 MonoBehaviour:
   m_ObjectHideFlags: 1
