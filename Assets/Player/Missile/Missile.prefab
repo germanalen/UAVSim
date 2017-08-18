@@ -268,7 +268,7 @@ MonoBehaviour:
   speed: 300
   maxTurn: 2
   lifespan: 10
-  engineDelay: 1
+  engineDelay: 0.3
 --- !u!114 &114073074603745628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,7 +357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngle: 15
   maxDistance: 1000
-  target: {fileID: 0}
 --- !u!114 &114894340403356244
 MonoBehaviour:
   m_ObjectHideFlags: 1

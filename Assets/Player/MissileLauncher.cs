@@ -8,6 +8,7 @@ public class MissileLauncher : NetworkBehaviour
 {
 
 	public GameObject missilePrefab;
+	public float missilePushoutSpeed = 15;
 
 	Transform missilePlaceholders;
 	AeroplaneController controller;
@@ -42,8 +43,7 @@ public class MissileLauncher : NetworkBehaviour
 			RpcDestroyMissilePlaceholder ();
 
 			GameObject missile = Instantiate (missilePrefab, position, rotation);
-			missile.GetComponent<Rigidbody> ().velocity = transform.forward * controller.ForwardSpeed;
-			//TODO: push missile out
+			missile.GetComponent<Rigidbody> ().velocity = transform.forward * controller.ForwardSpeed - transform.up * missilePushoutSpeed;
 			NetworkServer.Spawn (missile);
 		}
 	}

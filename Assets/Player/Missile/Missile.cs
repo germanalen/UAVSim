@@ -9,7 +9,7 @@ public class Missile : NetworkBehaviour
 	public float speed = 300;
 	public float maxTurn = 2;
 	public float lifespan = 10;
-	public float engineDelay = 1;
+	public float engineDelay = 0.2f;
 	bool engineOn = false;
 
 	Health health;
