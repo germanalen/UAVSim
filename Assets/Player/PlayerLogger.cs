@@ -12,7 +12,6 @@ public class PlayerLogger : MonoBehaviour
 	PlayerSetup playerSetup;
 	PlayerInput playerInput;
 	StreamWriter file;
-	public const string logDirectory = "logs";
 
 	public float logPeriod = 0.1f;
 	float nextLog = 0;
@@ -23,7 +22,12 @@ public class PlayerLogger : MonoBehaviour
 		playerSetup = GetComponent<PlayerSetup> ();
 		playerInput = GetComponent<PlayerInput> ();
 
+
+		NetworkManager networkManager = GameObject.Find ("NetworkManager").GetComponent<NetworkManager> ();
+
+		string logDirectory = "logs/" + networkManager.client.connection.hostId;
 		Directory.CreateDirectory (logDirectory);
+
 		string fileName = "player" + playerSetup.netId + "_log.txt";
 		file = new StreamWriter (Path.Combine (logDirectory, fileName), false);
 	}
