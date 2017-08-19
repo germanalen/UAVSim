@@ -2792,7 +2792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAngle: 180
-  maxDistance: 2000
+  maxDistance: 3000
 --- !u!114 &114439841780338144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2804,22 +2804,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d75643b5e08e4b2d8ad1f94240c24f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 2000
+  maxDistance: 3000
 --- !u!114 &114534120991900212
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1114724419586888}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32664ea74e6f44cb898081db95a23086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wishDirection: {x: 0, y: 0, z: 0}
-  wishRoll: 0
-  wishPitch: 0
-  angleDiffThreshold: 0
+  desiredDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &114547211634825896
 MonoBehaviour:
   m_ObjectHideFlags: 1

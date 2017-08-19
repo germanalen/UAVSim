@@ -28,6 +28,6 @@ public class AeroplaneUserControl2Axis : MonoBehaviour
 	{
 		float throttle = brakesInput ? -1 : 1;
 
-		m_Aeroplane.Move (playerInput.roll, playerInput.pitch, 0, throttle, brakesInput);
+		m_Aeroplane.Move (playerInput.roll, playerInput.pitch, playerInput.yaw, throttle, brakesInput);
 	}
 }

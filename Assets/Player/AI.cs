@@ -12,11 +12,7 @@ public class AI : MonoBehaviour
 	PlayerInput playerInput;
 
 
-	public Vector3 wishDirection;
-	public float wishRoll = 0.0f;
-	public float wishPitch = 0.0f;
-
-	public float angleDiffThreshold = 0.0f;
+	public Vector3 desiredDirection;
 
 	void Start ()
 	{
@@ -25,34 +21,69 @@ public class AI : MonoBehaviour
 		targetSeeker = GetComponent<TargetSeeker> ();
 
 		playerInput = GetComponent<PlayerInput> ();
-		playerInput.inputToggleBrakes = true;
 
-		wishDirection = transform.forward;
+		desiredDirection = transform.forward;
 	}
 
 	void Update ()
 	{
-		wishDirection = (Chase () + AvoidGround ()).normalized;
+		TurnBrakesOff ();
+
+		desiredDirection = Vector3.zero;
+		if (targetSeeker.target) {
+			desiredDirection += Seek ();
+		} else {
+			desiredDirection += Wander ();
+		}
+		desiredDirection += AvoidCollision ();
+		desiredDirection.Normalize ();
 		Attack ();
 		Turn ();
 
 		DebugDraw ();
 	}
 
-	Vector3 Chase ()
+
+	//give airbrakes time to update
+	float nextBrakesCheckTime;
+	void TurnBrakesOff ()
+	{
+		if (controller.AirBrakes && Time.realtimeSinceStartup > nextBrakesCheckTime) {
+			playerInput.inputToggleBrakes = true;
+			nextBrakesCheckTime = Time.realtimeSinceStartup + 1;
+		}
+	}
+
+
+	Vector3 wanderDirection = Vector3.up;
+	float nextWanderDirectionSwitchTime;
+	Vector3 Wander ()
+	{
+		if (Time.realtimeSinceStartup > nextWanderDirectionSwitchTime) {
+			wanderDirection = Random.insideUnitSphere;
+			nextWanderDirectionSwitchTime = Time.realtimeSinceStartup + 10;
+		}
+
+		return wanderDirection;
+	}
+
+	Vector3 Seek ()
 	{
 		if (targetSeeker.target) {
 			return (targetSeeker.target.position - transform.position).normalized;
 		}
-		return wishDirection;
+		return Vector3.zero;
 	}
 
-	Vector3 AvoidGround ()
+	Vector3 AvoidCollision ()
 	{
-		if (controller.Altitude < 100) {
-			return new Vector3 (0, 1, 0);
+		float distance = 200;
+		RaycastHit hit;
+		bool colliderAhead = Physics.Raycast (transform.position + transform.forward * 10, transform.forward, out hit, distance);
+		if (colliderAhead) {
+			return Vector3.up * (distance - hit.distance);
 		}
-		return wishDirection;
+		return Vector3.zero;
 	}
 
 	float firePeriod = 10;
@@ -61,7 +92,7 @@ public class AI : MonoBehaviour
 	{
 		if (targetSeeker.target) {
 			Vector3 toTarget = targetSeeker.target.position - transform.position;
-			if (Vector3.Angle(transform.forward, toTarget) < 1) {
+			if (Vector3.Angle(transform.forward, toTarget) < 10) {
 				if (Time.realtimeSinceStartup - lastFireTime > firePeriod) {
 					lastFireTime = Time.realtimeSinceStartup;
 					playerInput.inputFire = true;
@@ -71,10 +102,9 @@ public class AI : MonoBehaviour
 	}
 
 	//The following function was copied from AeroplaneAiControl.cs and modified
-	bool m_TakenOff = false;
 	void Turn ()
 	{
-		Vector3 targetPos = transform.position + wishDirection;
+		Vector3 targetPos = transform.position + desiredDirection;
 
 		// adjust the yaw and pitch towards the target
 		Vector3 localTarget = transform.InverseTransformPoint(targetPos);
@@ -95,25 +125,14 @@ public class AI : MonoBehaviour
 		float desiredRoll = targetAngleYaw;
 		float yawInput = 0;
 		float rollInput = 0;
-		if (!m_TakenOff)
-		{
-			// If the planes altitude is above m_TakeoffHeight we class this as taken off
-			float m_TakeoffHeight = 20;
-			if (controller.Altitude > m_TakeoffHeight)
-			{
-				m_TakenOff = true;
-			}
-		}
-		else
-		{
-			float m_RollSensitivity = 0.2f;
-			// now we have taken off to a safe height, we can use the rudder and ailerons to yaw and roll
-			yawInput = targetAngleYaw;
-			rollInput = -(controller.RollAngle - desiredRoll)*m_RollSensitivity;
-		}
+
+		float m_RollSensitivity = 0.2f;
+		yawInput = targetAngleYaw;
+		rollInput = -(controller.RollAngle - desiredRoll)*m_RollSensitivity;
+
 
 		// adjust how fast the AI is changing the controls based on the speed. Faster speed = faster on the controls.
-		float m_SpeedEffect = 0.01f;
+		float m_SpeedEffect = 0.1f;
 		float currentSpeedEffect = 1 + (controller.ForwardSpeed*m_SpeedEffect);
 		rollInput *= currentSpeedEffect;
 		pitchInput *= currentSpeedEffect;
@@ -121,12 +140,13 @@ public class AI : MonoBehaviour
 
 		playerInput.inputRoll = rollInput;
 		playerInput.inputPitch = pitchInput;
+		playerInput.inputYaw = yawInput;
 	}
 
 	void DebugDraw ()
 	{
 		float len = 40;
-		Debug.DrawRay (transform.position, wishDirection * len, Color.yellow);
-		Debug.DrawRay (transform.position, Vector3.ProjectOnPlane(wishDirection, transform.forward).normalized * len, Color.gray);
+		Debug.DrawRay (transform.position, desiredDirection * len, Color.yellow);
+		Debug.DrawRay (transform.position, Vector3.ProjectOnPlane(desiredDirection, transform.forward).normalized * len, Color.gray);
 	}
 }
