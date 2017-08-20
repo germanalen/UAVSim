@@ -13,11 +13,13 @@ public class MissileLauncher : NetworkBehaviour
 	Transform missilePlaceholders;
 	AeroplaneController controller;
 	PlayerInput playerInput;
+	PlayerSetup playerSetup;
 
 	void Start ()
 	{
 		controller = GetComponent<AeroplaneController> ();
 		playerInput = GetComponent<PlayerInput> ();
+		playerSetup = GetComponent<PlayerSetup> ();
 		missilePlaceholders = transform.Find ("MissilePlaceholders");
 	}
 
@@ -43,7 +45,7 @@ public class MissileLauncher : NetworkBehaviour
 			RpcDestroyMissilePlaceholder ();
 
 			GameObject missile = Instantiate (missilePrefab, position, rotation);
-			missile.GetComponent<TargetSeeker> ().exceptionNetId = netId;
+			missile.GetComponent<TargetSeeker> ().team = playerSetup.team;
 			missile.GetComponent<Rigidbody> ().velocity = transform.forward * controller.ForwardSpeed - transform.up * missilePushoutSpeed;
 			NetworkServer.Spawn (missile);
 		}

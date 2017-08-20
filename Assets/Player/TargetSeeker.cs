@@ -8,16 +8,11 @@ public class TargetSeeker : MonoBehaviour
 
 	public float maxAngle = 15;
 	public float maxDistance = 1000;
-	//float maxDistance;
+
 	public Transform target { get; private set; }
 
-	//ID of a player that shouldn't be considered as a target
-	public NetworkInstanceId exceptionNetId;
+	public int team;
 
-//	void Start()
-//	{
-//		maxDistance = GetComponent<SphereCollider> ().radius;
-//	}
 
 	float TargetScore (Transform possibleTarget)
 	{
@@ -49,7 +44,7 @@ public class TargetSeeker : MonoBehaviour
 			target = null;
 			for (int i = 0; i < players.Length; ++i) {
 				PlayerSetup playerSetup = players [i].GetComponent<PlayerSetup> ();
-				if (playerSetup.netId != exceptionNetId) {
+				if (playerSetup.team != team) {
 					Transform playerCenter = players [i].transform.Find ("Center");
 					if (TargetScore (playerCenter) > TargetScore (target)) {
 						target = playerCenter;

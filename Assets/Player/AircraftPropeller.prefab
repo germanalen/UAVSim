@@ -2706,6 +2706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0348d0a56d244434b992b3387d3a3b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!114 &114189128454171812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2719,6 +2720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputRoll: 0
   inputPitch: 0
+  inputYaw: 0
   inputFire: 0
   inputToggleBrakes: 0
 --- !u!114 &114230769576069410

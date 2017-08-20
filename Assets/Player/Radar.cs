@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Radar : MonoBehaviour
 {
-	public List<Vector3> toPlayers { get; private set; }
+	public List<Vector3> toPlayers = new List<Vector3> ();
 	public float maxDistance = 2000;
 
-	void Start ()
-	{
-		toPlayers = new List<Vector3> ();
-	}
 
 	void Update ()
 	{

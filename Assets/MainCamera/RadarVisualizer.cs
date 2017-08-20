@@ -11,7 +11,6 @@ public class RadarVisualizer : MonoBehaviour
 	public Material markMaterial;
 
 	public Material lockOnMaterial;
-	public TargetSeeker targetSeeker;
 
 	void Update ()
 	{

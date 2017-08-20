@@ -9,13 +9,24 @@ public class PlayerSetup : NetworkBehaviour
 	AeroplaneController controller;
 	Health health;
 
+	int _team;
+	public int team {
+		get {
+			return _team;
+		}
+		set { 
+			_team = value;
+			GetComponent<TargetSeeker> ().team = _team;
+		}
+	}
+
 	public void Start ()
 	{
 		rigidbodyComponent = GetComponent<Rigidbody> ();
 		health = GetComponent<Health> ();
 		controller = GetComponent<AeroplaneController> ();
 		if (isLocalPlayer) {
-			GetComponent<TargetSeeker> ().exceptionNetId = netId;
+			GetComponent<TargetSeeker> ().team = team;
 		} else {
 			GetComponent<AeroplaneUserControl2Axis> ().enabled = false;
 			GetComponent<Radar> ().enabled = false;
@@ -24,7 +35,7 @@ public class PlayerSetup : NetworkBehaviour
 	}
 
 
-	void Update()
+	void Update ()
 	{
 		health.scrapVelocity = transform.forward * controller.ForwardSpeed;
 		//Debug.Log (1.0f/Time.deltaTime);
@@ -34,8 +45,8 @@ public class PlayerSetup : NetworkBehaviour
 	}
 
 
-	[Command(channel=1)]
-	void CmdPrintTransformDiff(Vector3 pos, Quaternion rot, Vector3 vel)
+	[Command (channel = 1)]
+	void CmdPrintTransformDiff (Vector3 pos, Quaternion rot, Vector3 vel)
 	{
 		float posdiff = (pos - transform.position).magnitude;
 		float rotdiff = Quaternion.Angle (rot, transform.rotation);
