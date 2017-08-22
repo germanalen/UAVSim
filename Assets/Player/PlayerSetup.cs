@@ -9,6 +9,7 @@ public class PlayerSetup : NetworkBehaviour
 	AeroplaneController controller;
 	Health health;
 
+	[SyncVar]
 	int _team;
 	public int team {
 		get {

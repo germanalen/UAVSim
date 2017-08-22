@@ -22,10 +22,7 @@ public class PlayerLogger : MonoBehaviour
 		playerSetup = GetComponent<PlayerSetup> ();
 		playerInput = GetComponent<PlayerInput> ();
 
-
-		NetworkManager networkManager = GameObject.Find ("NetworkManager").GetComponent<NetworkManager> ();
-
-		string logDirectory = "logs/" + networkManager.client.connection.hostId;
+		string logDirectory = "logs/" + NetworkManager.singleton.client.connection.hostId;
 		Directory.CreateDirectory (logDirectory);
 
 		string fileName = "player" + playerSetup.netId + "_log.txt";
