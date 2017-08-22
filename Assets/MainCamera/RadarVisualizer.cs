@@ -12,9 +12,16 @@ public class RadarVisualizer : MonoBehaviour
 
 	public Material lockOnMaterial;
 
+	LocalPlayerFinder localPlayerFinder;
+
+	void Start ()
+	{
+		localPlayerFinder = GetComponent<LocalPlayerFinder> ();
+	}
+
 	void Update ()
 	{
-		GameObject localPlayer = GetComponent<MainCamera> ().localPlayer;
+		GameObject localPlayer = localPlayerFinder.localPlayer;
 		if (localPlayer) {
 			Radar radar = localPlayer.GetComponent<Radar> ();
 			TargetSeeker targetSeeker = localPlayer.GetComponent<TargetSeeker> ();

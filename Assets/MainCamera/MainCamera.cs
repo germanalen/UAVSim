@@ -6,24 +6,20 @@ public class MainCamera : MonoBehaviour
 {
 
 	Transform target;
-	public GameObject localPlayer { get; private set; }
+	LocalPlayerFinder localPlayerFinder;
 
+	void Start ()
+	{
+		localPlayerFinder = GetComponent<LocalPlayerFinder> ();
+	}
 
 	void Update ()
 	{
 		if (target) {
 			transform.position = target.position;
 			transform.rotation = target.rotation;
-		} else {
-			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
-			for (int i = 0; i < players.Length; ++i) {
-				PlayerSetup playerSetup = players [i].GetComponent<PlayerSetup> ();
-				if (playerSetup.isLocalPlayer) {
-					target = playerSetup.transform.Find ("CameraTarget");
-					localPlayer = players [i];
-					break;
-				}
-			}
+		} else if (localPlayerFinder.localPlayer) {
+			target = localPlayerFinder.localPlayer.transform.Find ("CameraTarget");
 		}
 	}
 }

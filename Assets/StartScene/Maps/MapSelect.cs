@@ -15,7 +15,7 @@ public class MapSelect : MonoBehaviour
 			Destroy (gameObject);
 		}
 	}
-		
+
 
 	public GameObject[] mapPrefabs;
 

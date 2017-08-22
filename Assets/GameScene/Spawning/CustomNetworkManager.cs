@@ -11,11 +11,6 @@ public class CustomNetworkManager : NetworkManager
 
 	bool isServer;
 
-	public override void OnStartClient (NetworkClient client)
-	{
-		client.RegisterHandler (MapChangeMessage, OnMapChangeMessage);
-	}
-
 	public override void OnStartServer ()
 	{
 		isServer = true;
@@ -35,7 +30,13 @@ public class CustomNetworkManager : NetworkManager
 		}
 	}
 
+
 	const int MapChangeMessage = MsgType.Highest + 1;
+	public override void OnStartClient (NetworkClient client)
+	{
+		client.RegisterHandler (MapChangeMessage, OnMapChangeMessage);
+	}
+		
 	public override void OnServerConnect (NetworkConnection conn)
 	{
 		MapSelect mapselect = GameObject.Find ("MapSelect").GetComponent<MapSelect> ();
