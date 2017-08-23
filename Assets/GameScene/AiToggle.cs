@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class TeamSelectGui : MonoBehaviour {
+public class AiToggle : MonoBehaviour
+{
 
 	LocalPlayerFinder localPlayerFinder;
-	public GameObject teamSelectGui;
+	public Toggle toggle;
 
 	void Start ()
 	{
@@ -14,6 +16,8 @@ public class TeamSelectGui : MonoBehaviour {
 
 	void Update ()
 	{
-		teamSelectGui.SetActive(localPlayerFinder.localPlayer == null);
+		if (localPlayerFinder.localPlayer) {
+			localPlayerFinder.localPlayer.GetComponent<AI>().enabled = toggle.isOn;
+		}
 	}
 }

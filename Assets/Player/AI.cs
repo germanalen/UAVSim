@@ -36,6 +36,7 @@ public class AI : MonoBehaviour
 			desiredDirection += Wander ();
 		}
 		desiredDirection += AvoidCollision ();
+		desiredDirection += KeepAltitude ();
 		desiredDirection.Normalize ();
 		Attack ();
 		Turn ();
@@ -46,6 +47,7 @@ public class AI : MonoBehaviour
 
 	//give airbrakes time to update
 	float nextBrakesCheckTime;
+
 	void TurnBrakesOff ()
 	{
 		if (controller.AirBrakes && Time.realtimeSinceStartup > nextBrakesCheckTime) {
@@ -57,6 +59,7 @@ public class AI : MonoBehaviour
 
 	Vector3 wanderDirection = Vector3.up;
 	float nextWanderDirectionSwitchTime;
+
 	Vector3 Wander ()
 	{
 		if (Time.realtimeSinceStartup > nextWanderDirectionSwitchTime) {
@@ -77,22 +80,42 @@ public class AI : MonoBehaviour
 
 	Vector3 AvoidCollision ()
 	{
-		float distance = 200;
+		float distance = 500;
 		RaycastHit hit;
-		bool colliderAhead = Physics.Raycast (transform.position + transform.forward * 10, transform.forward, out hit, distance);
+		bool colliderAhead = Physics.Raycast (transform.position + transform.forward * 10, 
+			                     transform.forward, out hit, distance);
+
 		if (colliderAhead) {
-			return Vector3.up * (distance - hit.distance);
+			nextWanderDirectionSwitchTime = 0; // switch wander direction
+			return -transform.forward * hit.distance * 0.1f;
 		}
+
 		return Vector3.zero;
+	}
+
+	Vector3 KeepAltitude ()
+	{
+		Vector3 dir = new Vector3 ();
+
+		float lowAltitude = 500;
+		if (controller.Altitude < lowAltitude)
+			dir += Vector3.up * (lowAltitude - controller.Altitude);
+
+		float highAltitude = 10000;
+		if (controller.Altitude > highAltitude)
+			dir += Vector3.down * (controller.Altitude - highAltitude);
+
+		return dir;
 	}
 
 	float firePeriod = 10;
 	float lastFireTime = 0;
+
 	void Attack ()
 	{
 		if (targetSeeker.target) {
 			Vector3 toTarget = targetSeeker.target.position - transform.position;
-			if (Vector3.Angle(transform.forward, toTarget) < 10) {
+			if (Vector3.Angle (transform.forward, toTarget) < 10) {
 				if (Time.realtimeSinceStartup - lastFireTime > firePeriod) {
 					lastFireTime = Time.realtimeSinceStartup;
 					playerInput.inputFire = true;
@@ -107,9 +130,9 @@ public class AI : MonoBehaviour
 		Vector3 targetPos = transform.position + desiredDirection;
 
 		// adjust the yaw and pitch towards the target
-		Vector3 localTarget = transform.InverseTransformPoint(targetPos);
-		float targetAngleYaw = Mathf.Atan2(localTarget.x, localTarget.z);
-		float targetAnglePitch = -Mathf.Atan2(localTarget.y, localTarget.z);
+		Vector3 localTarget = transform.InverseTransformPoint (targetPos);
+		float targetAngleYaw = Mathf.Atan2 (localTarget.x, localTarget.z);
+		float targetAnglePitch = -Mathf.Atan2 (localTarget.y, localTarget.z);
 
 		// calculate the difference between current pitch and desired pitch
 		float changePitch = targetAnglePitch - controller.PitchAngle;
@@ -119,7 +142,7 @@ public class AI : MonoBehaviour
 
 		float m_PitchSensitivity = 0.5f;
 		// AI applies elevator control (pitch, rotation around x) to reach the target angle
-		float pitchInput = changePitch*m_PitchSensitivity;
+		float pitchInput = changePitch * m_PitchSensitivity;
 
 		// clamp the planes roll
 		float desiredRoll = targetAngleYaw;
@@ -128,12 +151,12 @@ public class AI : MonoBehaviour
 
 		float m_RollSensitivity = 0.2f;
 		yawInput = targetAngleYaw;
-		rollInput = -(controller.RollAngle - desiredRoll)*m_RollSensitivity;
+		rollInput = -(controller.RollAngle - desiredRoll) * m_RollSensitivity;
 
 
 		// adjust how fast the AI is changing the controls based on the speed. Faster speed = faster on the controls.
 		float m_SpeedEffect = 0.1f;
-		float currentSpeedEffect = 1 + (controller.ForwardSpeed*m_SpeedEffect);
+		float currentSpeedEffect = 1 + (controller.ForwardSpeed * m_SpeedEffect);
 		rollInput *= currentSpeedEffect;
 		pitchInput *= currentSpeedEffect;
 		yawInput *= currentSpeedEffect;
@@ -147,6 +170,6 @@ public class AI : MonoBehaviour
 	{
 		float len = 40;
 		Debug.DrawRay (transform.position, desiredDirection * len, Color.yellow);
-		Debug.DrawRay (transform.position, Vector3.ProjectOnPlane(desiredDirection, transform.forward).normalized * len, Color.gray);
+		Debug.DrawRay (transform.position, Vector3.ProjectOnPlane (desiredDirection, transform.forward).normalized * len, Color.gray);
 	}
 }
