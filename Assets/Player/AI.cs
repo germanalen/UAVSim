@@ -59,7 +59,6 @@ public class AI : MonoBehaviour
 
 	Vector3 wanderDirection = Vector3.up;
 	float nextWanderDirectionSwitchTime;
-
 	Vector3 Wander ()
 	{
 		if (Time.realtimeSinceStartup > nextWanderDirectionSwitchTime) {
@@ -70,6 +69,7 @@ public class AI : MonoBehaviour
 		return wanderDirection;
 	}
 
+
 	Vector3 Seek ()
 	{
 		if (targetSeeker.target) {
@@ -78,19 +78,25 @@ public class AI : MonoBehaviour
 		return Vector3.zero;
 	}
 
+
+	Vector3 awayFromCollision = Vector3.zero;
+	float flyAwayFromCollisionUntil = 0;
 	Vector3 AvoidCollision ()
 	{
+		if (Time.realtimeSinceStartup > flyAwayFromCollisionUntil)
+			awayFromCollision = Vector3.zero;
+
 		float distance = 500;
 		RaycastHit hit;
 		bool colliderAhead = Physics.Raycast (transform.position + transform.forward * 10, 
 			                     transform.forward, out hit, distance);
 
 		if (colliderAhead) {
-			nextWanderDirectionSwitchTime = 0; // switch wander direction
-			return -transform.forward * hit.distance * 0.1f;
+			awayFromCollision = -transform.forward * hit.distance * 0.1f;
+			flyAwayFromCollisionUntil = Time.realtimeSinceStartup + 5;
 		}
 
-		return Vector3.zero;
+		return awayFromCollision;
 	}
 
 	Vector3 KeepAltitude ()
