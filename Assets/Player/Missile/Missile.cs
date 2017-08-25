@@ -10,6 +10,7 @@ public class Missile : NetworkBehaviour
 	public float maxTurn = 2;
 	public float lifespan = 20;
 	public float engineDelay = 0.2f;
+	public float colliderDelay = 0.2f;
 	bool engineOn = false;
 
 	Health health;
@@ -21,16 +22,24 @@ public class Missile : NetworkBehaviour
 		body = GetComponent<Rigidbody> ();
 		health = GetComponent<Health> ();
 
-		if(isServer)
+		if (isServer) {
 			Invoke ("TurnEngineOn", engineDelay);
+			Invoke ("TurnColliderOn", colliderDelay);
+		}
 	}
 
 	void TurnEngineOn()
 	{
 		if (isServer) {
 			engineOn = true;
-			GetComponent<Collider> ().enabled = true;
 			Invoke ("Die", lifespan);
+		}
+	}
+
+	void TurnColliderOn()
+	{
+		if (isServer) {
+			GetComponent<Collider> ().enabled = true;
 		}
 	}
 
