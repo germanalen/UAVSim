@@ -40,7 +40,10 @@ public class Health : NetworkBehaviour
 		if (sparks) {
 			for (int i = 0; i < collision.contacts.Length; ++i) {
 				sparks.transform.position = collision.contacts [i].point;
-				sparks.transform.rotation = Quaternion.LookRotation (collision.relativeVelocity);
+
+				if(collision.relativeVelocity.magnitude > 0)
+					sparks.transform.rotation = Quaternion.LookRotation (collision.relativeVelocity);
+
 				sparks.Emit (10);
 			}
 		}
