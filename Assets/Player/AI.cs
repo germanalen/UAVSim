@@ -8,6 +8,8 @@ public class AI : MonoBehaviour
 	Radar radar;
 	AeroplaneController controller;
 	TargetSeeker targetSeeker;
+	Rigidbody body;
+	PlayerSetup playerSetup;
 
 	PlayerInput playerInput;
 
@@ -19,6 +21,8 @@ public class AI : MonoBehaviour
 		radar = GetComponent<Radar> ();
 		controller = GetComponent<AeroplaneController> ();
 		targetSeeker = GetComponent<TargetSeeker> ();
+		body = GetComponent<Rigidbody> ();
+		playerSetup = GetComponent<PlayerSetup> ();
 
 		playerInput = GetComponent<PlayerInput> ();
 
@@ -35,6 +39,7 @@ public class AI : MonoBehaviour
 		} else {
 			desiredDirection += Wander ();
 		}
+		desiredDirection += StickAroundFriendlyGroundTargets ();
 		desiredDirection += AvoidCollision ();
 		desiredDirection += KeepAltitude ();
 		desiredDirection.Normalize ();
@@ -107,12 +112,35 @@ public class AI : MonoBehaviour
 		if (controller.Altitude < lowAltitude)
 			dir += Vector3.up * (lowAltitude - controller.Altitude);
 
-		float highAltitude = 10000;
+		float highAltitude = 5000;
 		if (controller.Altitude > highAltitude)
 			dir += Vector3.down * (controller.Altitude - highAltitude);
 
 		return dir;
 	}
+
+
+	Vector3 StickAroundFriendlyGroundTargets ()
+	{
+		GameObject closestFriendlyGroundTarget = null;
+
+		foreach (GameObject target in radar.groundTargets) {
+			if (target && target.GetComponent<GroundTarget> ().team == playerSetup.team) {
+				if (closestFriendlyGroundTarget == null
+					|| (Vector3.Distance(closestFriendlyGroundTarget.transform.position, transform.position)
+						> Vector3.Distance(target.transform.position, transform.position))) {
+					closestFriendlyGroundTarget = target;
+				}
+			}
+		}
+
+		if (closestFriendlyGroundTarget) {
+			Vector3 toTarget = closestFriendlyGroundTarget.transform.position - transform.position;
+			return toTarget * 0.001f;
+		}
+		return Vector3.zero;
+	}
+
 
 	float firePeriod = 10;
 	float lastFireTime = 0;

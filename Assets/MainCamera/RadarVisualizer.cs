@@ -26,12 +26,17 @@ public class RadarVisualizer : MonoBehaviour
 			Radar radar = localPlayer.GetComponent<Radar> ();
 			TargetSeeker targetSeeker = localPlayer.GetComponent<TargetSeeker> ();
 
-			for (int i = 0; i < radar.toPlayers.Count; ++i) {
-				Vector3 direction = radar.toPlayers [i].normalized;
-				Vector3 markPos = transform.position + direction * markDistance;
-				Quaternion ringRot = Quaternion.LookRotation (direction);
-
-				Graphics.DrawMesh (markMesh, markPos, ringRot, markMaterial, 0, null, 0, null, false, false, false); 
+			foreach (GameObject obj in radar.players) {
+				if(obj)
+					DrawMark (obj.transform.position, markDistance, markMesh, markMaterial);
+			}
+			foreach (GameObject obj in radar.groundTargets) {
+				if(obj)
+					DrawMark (obj.transform.position, markDistance, markMesh, markMaterial);
+			}
+			foreach (GameObject obj in radar.missiles) {
+				if(obj)
+					DrawMark (obj.transform.position, markDistance, markMesh, markMaterial);
 			}
 
 

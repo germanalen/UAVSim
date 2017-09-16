@@ -4,24 +4,39 @@ using UnityEngine;
 
 public class Radar : MonoBehaviour
 {
-	public List<Vector3> toPlayers = new List<Vector3> ();
+	//some elements in following lists can be null
+	public List<GameObject> players = new List<GameObject> ();
+	public List<GameObject> groundTargets;
+	public List<GameObject> missiles = new List<GameObject> ();
 	public float maxDistance = 2000;
 
+
+	void Start ()
+	{
+		groundTargets = new List<GameObject>(GameObject.FindGameObjectsWithTag ("GroundTarget"));
+	}
 
 	void Update ()
 	{
 		if (Time.frameCount % 6 == 0) {
-			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
-			toPlayers.Clear ();
 
-			for (int i = 0; i < players.Length; ++i) {
-				PlayerSetup playerSetup = players [i].GetComponent<PlayerSetup> ();
-				if (!playerSetup.isLocalPlayer) {
-					Vector3 playerCenter = players [i].transform.Find ("Center").position;
-					Vector3 toPlayer = playerCenter - transform.position;
+			GameObject[] allplayers = GameObject.FindGameObjectsWithTag ("Player");
+			players.Clear ();
+			foreach (GameObject player in allplayers) {
+				PlayerSetup playerSetup = player.GetComponent<PlayerSetup> ();
+				if (!playerSetup.isLocalPlayer
+				    && Vector3.Distance (transform.position, player.transform.position) < maxDistance) {
+					players.Add (player);
+				}
+			}
+		}
 
-					if (toPlayer.magnitude <= maxDistance)
-						toPlayers.Add (toPlayer);
+		if (Time.frameCount % 2 == 0) {
+			GameObject[] allmissiles = GameObject.FindGameObjectsWithTag ("Missile");
+			missiles.Clear ();
+			foreach (GameObject missile in allmissiles) {
+				if (Vector3.Distance (transform.position, missile.transform.position) < maxDistance) {
+					missiles.Add (missile);
 				}
 			}
 		}

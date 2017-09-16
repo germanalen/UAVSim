@@ -14,6 +14,18 @@ public class TargetSeeker : MonoBehaviour
 	public int team;
 
 
+	private List<GameObject> groundTargets = new List<GameObject> ();
+
+	void Start()
+	{
+		GameObject[] allGroundTargets = GameObject.FindGameObjectsWithTag ("GroundTarget");
+		foreach (GameObject groundTarget in allGroundTargets) {
+			if (groundTarget.GetComponent<GroundTarget> ().team != team)
+				groundTargets.Add (groundTarget);
+		}
+	}
+
+
 	float TargetScore (Transform possibleTarget)
 	{
 		if (possibleTarget == null)
@@ -42,13 +54,19 @@ public class TargetSeeker : MonoBehaviour
 		if (Time.frameCount % 6 == 0) {
 			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 			target = null;
-			for (int i = 0; i < players.Length; ++i) {
-				PlayerSetup playerSetup = players [i].GetComponent<PlayerSetup> ();
+			foreach (GameObject player in players) {
+				PlayerSetup playerSetup = player.GetComponent<PlayerSetup> ();
 				if (playerSetup.team != team) {
-					Transform playerCenter = players [i].transform.Find ("Center");
+					Transform playerCenter = player.transform.Find ("Center");
 					if (TargetScore (playerCenter) > TargetScore (target)) {
 						target = playerCenter;
 					}
+				}
+			}
+
+			foreach (GameObject groundtarget in groundTargets) {
+				if (groundtarget && TargetScore (groundtarget.transform) > TargetScore (target)) {
+					target = groundtarget.transform;
 				}
 			}
 		}

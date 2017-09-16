@@ -140,6 +140,7 @@ MonoBehaviour:
   - {fileID: 1243518346498660, guid: cf827ec19a8c64ecb8b8a3a827bb4e72, type: 2}
   - {fileID: 1421568059515012, guid: 48cf069617502425bb2d81aa1f69fd45, type: 2}
   - {fileID: 1458988100676482, guid: ba7977cb250964c349733eaf15219015, type: 2}
+  - {fileID: 1508664899920508, guid: 2d371c9501017458aa14a40c5a827da8, type: 2}
 --- !u!4 &22379878
 Transform:
   m_ObjectHideFlags: 0
@@ -1147,6 +1148,7 @@ MonoBehaviour:
   m_OnlineScene: GameScene
   m_SpawnPrefabs:
   - {fileID: 1994372928045878, guid: 2a13357ca070e4029bfc5a66d5f70bc5, type: 2}
+  - {fileID: 1284202428401840, guid: 641e8b536ee3c4548977adce4e8501d9, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
