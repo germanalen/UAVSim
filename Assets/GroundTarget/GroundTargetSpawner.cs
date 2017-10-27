@@ -10,7 +10,13 @@ public class GroundTargetSpawner : NetworkBehaviour
 
 	public override void OnStartServer ()
 	{
-		GameObject groundTarget = Instantiate (groundTargetPrefab, transform.position, transform.rotation);
-		NetworkServer.Spawn (groundTarget);
+
+		GameObject[] groundTargetSpawnPointObjects = GameObject.FindGameObjectsWithTag ("GroundTargetSpawn");
+		foreach (GameObject obj in groundTargetSpawnPointObjects) {
+			SpawnPoint sp = obj.GetComponent<SpawnPoint> ();
+			GameObject groundTarget = Instantiate (groundTargetPrefab, sp.transform.position, sp.transform.rotation);
+			groundTarget.GetComponent<GroundTarget> ().team = sp.team;
+			NetworkServer.Spawn (groundTarget);
+		}
 	}
 }

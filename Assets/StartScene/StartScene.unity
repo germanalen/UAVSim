@@ -1204,6 +1204,8 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+  groundTargetPrefab: {fileID: 1284202428401840, guid: 641e8b536ee3c4548977adce4e8501d9,
+    type: 2}
 --- !u!4 &1550168892
 Transform:
   m_ObjectHideFlags: 0
